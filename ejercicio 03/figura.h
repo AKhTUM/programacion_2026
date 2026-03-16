@@ -1,21 +1,24 @@
-#ifdef FIGURA_H
+#ifndef FIGURA_H
 #define FIGURA_H
 
 #include <string>
 
-class figura {
+class Figura {
     protected:
         std::string nombre;
 
 // CONSTRUCTORES
     public:
-        figura(std::string nombre) : nombre(nombre) {}
-        virtual ~figura() {} //  Destructor virtual para permitir la eliminación adecuada de objetos derivados
-
+      Figura(std::string nombre);
+// DESTRUCTOR
+      virtual ~Figura();
+        
 // FUNCIONES VIRTUALES
         virtual double CalcularArea() = 0;
         virtual void Describir_Figura() = 0;
 
 // GETTERS
-        std::string ObtenNombre() const { return nombre; }
+      std::string obtenerNombre() const;
 };
+
+#endif
