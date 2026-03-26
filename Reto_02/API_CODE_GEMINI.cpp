@@ -1,27 +1,36 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <fstream> // ¡Nueva librería mágica para leer archivos!
 
 int main() {
     std::cout << "=== Chat con Inteligencia Artificial (Gemini API) ===" << std::endl;
 
-    // 1. PEGA TU LLAVE AQUÍ ENTRE LAS COMILLAS
-    std::string apiKey = "AIzaSyAKDTy4xBGkQSRXdNGedAqFZ4XtaWWTIXs"; 
-   // 2. Apuntamos directamente a la versión 2.5 que marca la documentación oficial
+    std::string apiKey;
+    // 1. Abrimos el archivo secreto
+    std::ifstream archivoSecreto(".env"); 
+
+    // 2. Comprobamos si el archivo existe y se pudo abrir
+    if (archivoSecreto.is_open()) {
+        std::getline(archivoSecreto, apiKey); // Leemos la primera línea y la guardamos en apiKey
+        archivoSecreto.close();               // Cerramos el archivo por seguridad
+    } else {
+        std::cout << "¡ERROR CRÍTICO!: No se encontro el archivo .env con la llave." << std::endl;
+        return 1; // Apagamos el programa si no hay llave
+    }
+
+    // A partir de aquí, el código es exactamente igual al que ya tenías
     std::string url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + apiKey;
 
-    // 3. Le pedimos al usuario (tú o tu profe) que escriba la pregunta
     std::string miPregunta;
     std::cout << "\nEscribe tu pregunta para la IA: ";
-    std::getline(std::cin, miPregunta); // Leemos toda la línea que escribas
+    std::getline(std::cin, miPregunta);
 
     std::cout << "\nEnviando mensaje... esperando respuesta de Google...\n" << std::endl;
 
-    // 4. Armamos el paquete inyectando tu pregunta en el formato JSON
     std::string comando = "curl -s -H \"Content-Type: application/json\" -X POST \"" + url + "\" ";
     comando += "-d \"{\\\"contents\\\": [{\\\"parts\\\":[{\\\"text\\\": \\\"" + miPregunta + "\\\"}]}]}\"";
 
-    // 5. ¡Ejecutamos la magia en la terminal!
     system(comando.c_str());
 
     std::cout << "\n\n=== Conexion terminada ===" << std::endl;
