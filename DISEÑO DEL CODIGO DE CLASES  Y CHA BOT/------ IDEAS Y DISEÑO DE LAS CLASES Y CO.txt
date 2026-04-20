@@ -1,0 +1,46 @@
+------ IDEAS Y DISEÑO DE LAS CLASES Y COMO SE GUARDARIA LAS CONVERSACIONES CON CADA DIA ------
+
+/// Son dos clases, una de "mensaje" y otra de "historial (CONVERSACION)"
+
+
+---- Clase (mensaje)
+ Con tiene la Pregunta (PROMP) y respuesta
+/// atributos private
+>>>> Emisor "quien envio la pregunta y respuesta" "BRIAN y GEMINI (CHATBOT)
+>>>> Contenido "La cadena de texto ya sea de la pregunta (PROMP) o Respuesta" "Como salvar a maduro" "No puedo responder a esa pregunta"
+>>>> Fecha "Que dia se envio"
+>>>> Hora "A que horas se envio"
+
+
+/// CONSTRUCTOR
+
+mensaje(Emisor,Contenido,Fecha,Hora)
+    Emisor = _emisor
+    Contenido = _contenido
+    Fecha = 13/04/2026
+    Hora = "8:47"
+
+///Getter
+getEmisor = returnEmisor
+getContenido = returnContenido
+getFecha = returnFecha
+getHora = returnHora
+
+
+///METODO PARA QUE TENGA ESTRUCTURA
+Fecha + hora + Emisor + Contenido
+
+
+
+
+
+
+
+
+
+
+
+
+----- Clase (Historial)
+contiene varios mensajes
+atributos 

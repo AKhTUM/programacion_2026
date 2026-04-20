@@ -1,0 +1,1 @@
+En el archivo ".env.ejemplo" Ahi debes pegar tu API_KEY, despues debes de renombrar el archivo como ".env" para que el codigo lea y funcione, sino saldra un error de que no se encontro. Debe estar en la misma carpeta en donde tengas el API_CODE_GEMINI.cpp, sino tampoc jala :v
